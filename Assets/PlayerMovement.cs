@@ -21,11 +21,13 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
+        _Delta.x  = 0;
+        _Delta.z = 0;
         _Xinput = Input.GetAxis("Horizontal");
         _Yinput = Input.GetAxis("Vertical");
       
         _CanJump = _Checker._Grounded;
-        if (_Checker._Grounded&& _Rb.velocity.y<0)
+        if (_Checker._Grounded && _Rb.velocity.y < 0)
         {
             _Delta.y = 0;
         }
@@ -34,14 +36,14 @@ public class PlayerMovement : MonoBehaviour
             _Delta.y = _JumpHeight;
             print(" Jummp");
         }
-        _Delta.x = _Xinput * _MovementSpeed ;
-        _Delta.z = _Yinput * _MovementSpeed ;
+        _Delta += _Xinput * _MovementSpeed *transform.right+  _Yinput * _MovementSpeed  *transform.forward;
 
 
 
 
 
-
+        // geruik: Input.getaxis muis X waarde
+        //LocalEulerAxis van de transform aanpassen
 
 
 
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         _Rb.velocity = _Delta;
         print(_Checker._Grounded);
         
+
     }
     private void FixedUpdate()
     {
