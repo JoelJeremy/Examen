@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float rotationY = 0f;
+    public float rotationX = 0f;
+    public float sensitivity = 3f;
+
     public float _MovementSpeed = 2;
     public float _JumpHeight = 2;
     public float _Gravity = 1;
@@ -18,14 +22,14 @@ public class PlayerMovement : MonoBehaviour
     {
         _Rb = GetComponent<Rigidbody>();
     }
-    
+
     void Update()
     {
-        _Delta.x  = 0;
+        _Delta.x = 0;
         _Delta.z = 0;
         _Xinput = Input.GetAxis("Horizontal");
         _Yinput = Input.GetAxis("Vertical");
-      
+
         _CanJump = _Checker._Grounded;
         if (_Checker._Grounded && _Rb.velocity.y < 0)
         {
@@ -34,29 +38,32 @@ public class PlayerMovement : MonoBehaviour
         if (_CanJump && Input.GetKeyDown(KeyCode.Space))
         {
             _Delta.y = _JumpHeight;
-            print(" Jummp");
+            print(" Jump");
         }
-        _Delta += _Xinput * _MovementSpeed *transform.right+  _Yinput * _MovementSpeed  *transform.forward;
+        _Delta += _Xinput * _MovementSpeed * transform.right + _Yinput * _MovementSpeed * transform.forward;
 
 
+        rotationY += Input.GetAxis("Mouse X") * sensitivity;
+        transform.localEulerAngles = new Vector3(0,rotationY, 0);
 
-
-
+        rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
+        rotationX = Mathf.Clamp(rotationX, -85f, 85f);
+        Camera.main.transform.localEulerAngles = new Vector3(rotationX, 0, 0);
+        
         // geruik: Input.getaxis muis X waarde
         //LocalEulerAxis van de transform aanpassen
 
-
-
+        // Math.clamp
 
         _Delta.y -= _Gravity;
         _Rb.velocity = _Delta;
         print(_Checker._Grounded);
-        
+
 
     }
     private void FixedUpdate()
     {
-        
+
     }
 
 }
