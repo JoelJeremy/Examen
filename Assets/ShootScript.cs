@@ -9,6 +9,9 @@ public class ShootScript : MonoBehaviour
     public int _CurrentAmmo;
     public int _MaxAmmo = 20;
     public int _BackupAmmo=200;
+    public int _Damage = 35;
+    public GameObject _Crosshair;
+    public LayerMask Enemies;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,9 +24,14 @@ public class ShootScript : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (Physics.Raycast(Camera.main.transform.position, transform.parent.forward, out _Hit, _Range))
+            if (Physics.Raycast(Camera.main.transform.position, transform.parent.forward, out _Hit, _Range,Enemies))
             {
                 print(_Hit.collider.gameObject);
+                if (_Hit.collider.GetComponent<Health>())
+                {
+                    _Hit.collider.GetComponent<Health>().Takedamage(_Damage);
+                    ShowHitMarker();
+                }
 
             }
             _CurrentAmmo--;
@@ -40,5 +48,23 @@ public class ShootScript : MonoBehaviour
     {
         _CurrentAmmo = _MaxAmmo;
         _BackupAmmo -= _MaxAmmo;
+    }
+
+    void ShowHitMarker()
+    {
+        _Crosshair.SetActive(true);
+        StopAllCoroutines();
+        StartCoroutine(HitmarkTimer());
+
+    }
+    void HideHitmarker()
+    {
+        _Crosshair.SetActive(false);
+    }
+    IEnumerator HitmarkTimer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        HideHitmarker();
+
     }
 }
