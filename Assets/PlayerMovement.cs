@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float sensitivity = 3f;
 
     public float _MovementSpeed = 2;
-    public float _JumpHeight = 1000;
+    public float _JumpHeight = 2;
     public float _Gravity = 1;
     public Vector3 _Delta;
     public float _Xinput;
