@@ -58,5 +58,11 @@ public class WayPoint : MonoBehaviour
         _TempB = _B;
         _TempB.y = 0;
         transform.position = Vector3.Lerp(_StartPosition+_TempA, _StartPosition+_TempB, _T);
+
+
+
+        Vector3 _Direction = (_MovingFromAtoB) ? transform.position+_B - transform.position : transform.position+_A - transform.position;
+        transform.rotation = Quaternion.LookRotation(-_Direction.normalized);
+        transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0);
     }
 }
