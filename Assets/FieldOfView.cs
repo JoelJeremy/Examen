@@ -31,6 +31,11 @@ public class FieldOfView : MonoBehaviour
                 if (Mathf.Abs(Vector3.Angle(t.transform.position - transform.position, transform.forward) - 180) < _Angle)
                 {
                     print(" Hit");
+                    FollowTarget _Ft = GetComponent<FollowTarget>();
+                    _Ft.enabled = true;
+                    _Ft._Target = t;
+                    GetComponent<WayPoint>().enabled = false;
+                    this.enabled = false;
                 }
             }
             
