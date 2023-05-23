@@ -12,5 +12,17 @@ public class Bullet : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = transform.forward * _Speed/1;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            if (other.GetComponent<Health>()) ;
+            {
+                print(other.tag);
+                other.GetComponent<Health>().Takedamage(_BulletDamage);
+            }
+        }
+        
+    }
 
 }
