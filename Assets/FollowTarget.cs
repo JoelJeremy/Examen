@@ -8,15 +8,22 @@ public class FollowTarget : MonoBehaviour
     public float _Speed;
     public GameObject _Target;
     public Rigidbody _Rigidbody;
-
+    EnemyShoot _ShootScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        _Rigidbody = GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
+    public void StartFollowing()
+    {
+_Rigidbody = GetComponent<Rigidbody>();
+        _ShootScript = GetComponent<EnemyShoot>();
+        _ShootScript.ShootTimer();
+
+    }
     void FixedUpdate()
     {
         Follow();
