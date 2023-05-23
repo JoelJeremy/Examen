@@ -242,6 +242,10 @@ MonoBehaviour:
   _MaxAmmo: 20
   _BackupAmmo: 100
   _Damage: 35
+  _Crosshair: {fileID: 2111126483}
+  Enemies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &52910944
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +801,9 @@ GameObject:
   - component: {fileID: 209625233}
   - component: {fileID: 209625234}
   - component: {fileID: 209625235}
-  m_Layer: 0
+  - component: {fileID: 209625236}
+  - component: {fileID: 209625237}
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,6 +859,41 @@ CapsuleCollider:
   m_Height: 2.12
   m_Direction: 1
   m_Center: {x: 0, y: -0.69, z: 0}
+--- !u!114 &209625236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209625232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6e5f44244ebae4c85d77eedce0c268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _A: {x: 0, y: -0.78, z: -2.96}
+  _B: {x: 0, y: -0.61, z: 4.33}
+  _StartPosition: {x: 0, y: 0, z: 0}
+  _MovementSpeed: 10
+  _T: 0
+--- !u!114 &209625237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209625232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ebc7fc436fa9a44abb5ed1eaa07584, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Angle: 45
+  _Range: 20
+  _TargetLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _Targets: []
 --- !u!1 &213227560
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,7 +6415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2111126484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6485,6 +6526,10 @@ PrefabInstance:
     - target: {fileID: 2655768336565814344, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655768336565814344, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3614703598008583489, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
       propertyPath: m_RootOrder

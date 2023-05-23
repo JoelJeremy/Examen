@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
 
         _Delta.y -= _Gravity;
         _Rb.velocity = _Delta;
-        print(_Checker._Grounded);
 
 
     }

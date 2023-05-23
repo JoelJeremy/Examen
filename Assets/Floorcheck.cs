@@ -11,7 +11,6 @@ public class Floorcheck : MonoBehaviour
         if ((_Ground & (1 << other.gameObject.layer)) != 0)
         {
             _Grounded = true;
-            print("collission");
 
         }
     }
