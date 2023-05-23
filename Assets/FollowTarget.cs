@@ -19,8 +19,10 @@ public class FollowTarget : MonoBehaviour
     // Update is called once per frame
     public void StartFollowing()
     {
+        print(" Starting to follow");
 _Rigidbody = GetComponent<Rigidbody>();
         _ShootScript = GetComponent<EnemyShoot>();
+        _ShootScript._Target = _Target;
         _ShootScript.ShootTimer();
 
     }

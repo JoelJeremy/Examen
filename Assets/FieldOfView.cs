@@ -32,9 +32,10 @@ public class FieldOfView : MonoBehaviour
                 {
                     print(" Hit");
                     FollowTarget _Ft = GetComponent<FollowTarget>();
-                    _Ft.StartFollowing();
+                    
                     _Ft.enabled = true;
                     _Ft._Target = t;
+                    _Ft.StartFollowing();
                     GetComponent<WayPoint>().enabled = false;
                     this.enabled = false;
                 }
