@@ -7,25 +7,31 @@ public class FieldOfView : MonoBehaviour
     public float _Angle = 45;
     public float _Range = 10;
     public LayerMask _TargetLayer;
+
+    //This creates an Array of the _Targets
     public GameObject[] _Targets;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
+        //This for loop, loops and finds over all the game objects with the "Player" tag. This is then set as the _Target
         for (int i = 0; i < GameObject.FindGameObjectsWithTag("Player").Length; i++)
         {
             _Targets = GameObject.FindGameObjectsWithTag("Player");
         }
-
+        
+        //*******
         for (int i = 0; i < _Targets.Length; i++)
         {
             GameObject t = _Targets[i];
             RaycastHit _Hit;
+
             if(Physics.Raycast(transform.position, t.transform.position - transform.position,out _Hit, _Range, _TargetLayer))
             {
                 if (Mathf.Abs(Vector3.Angle(t.transform.position - transform.position, transform.forward) - 180) < _Angle)

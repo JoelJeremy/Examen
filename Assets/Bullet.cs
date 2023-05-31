@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    // These are the variables for the bullet property.
     public int _BulletDamage;
     public float _Speed;
     public float _DestroyTime;
 
     private void FixedUpdate()
     {
+        // This gets the component (in this case the bullet) and sets the speed and direction that the bullets has to travel towards.
         GetComponent<Rigidbody>().velocity = transform.forward * _Speed/1;
     }
+
+    // This triggers a system once the object collides with another object.
     private void OnTriggerEnter(Collider other)
     {
+        // If the object (Bullet) hits the chosen object, In this case the player. The health will be altered.
         if(other.tag == "Player")
         {
             if (other.GetComponent<Health>()) ;
             {
                 print(other.tag);
+                // The Health will decrease depending on the _BulletDamage.
                 other.GetComponent<Health>().Takedamage(_BulletDamage);
             }
         }

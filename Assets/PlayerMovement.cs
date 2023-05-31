@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
     public Floorcheck _Checker;
     bool _CanJump = false;
     // Start is called before the first frame update
+
+
+    //At the start the component RigidBody is fetched.
     void Start()
     {
         _Rb = GetComponent<Rigidbody>();
@@ -27,14 +30,17 @@ public class PlayerMovement : MonoBehaviour
     {
         _Delta.x = 0;
         _Delta.z = 0;
+     
         _Xinput = Input.GetAxis("Horizontal");
         _Yinput = Input.GetAxis("Vertical");
 
+        //This allows the player to Jump, but only if _Grounded is true.
         _CanJump = _Checker._Grounded;
         if (_Checker._Grounded && _Rb.velocity.y < 0)
         {
             _Delta.y = 0;
         }
+
         if (_CanJump && Input.GetKeyDown(KeyCode.Space))
         {
             _Delta.y = _JumpHeight;
@@ -57,7 +63,6 @@ public class PlayerMovement : MonoBehaviour
 
         _Delta.y -= _Gravity;
         _Rb.velocity = _Delta;
-
 
     }
     private void FixedUpdate()
