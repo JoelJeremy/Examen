@@ -5,7 +5,9 @@ using TMPro;
 
 public class EnemyCounter : MonoBehaviour
 {
-    public TMP_Text _EnemyCounter;
+    private TMP_Text _EnemyCounter;
+    public int _AmountOfEnemies = 100;
+    public bool _IsStarted = false;
 
     private void Start()
     {
@@ -15,6 +17,8 @@ public class EnemyCounter : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        _EnemyCounter.text = "Enemies Left: " + GameObject.FindObjectsOfType<EnemyShoot>().Length;
+        _AmountOfEnemies = GameObject.FindObjectsOfType<EnemyShoot>().Length;
+        _EnemyCounter.text = "Enemies Left: " + _AmountOfEnemies;
+        _IsStarted = true;
     }
 }
