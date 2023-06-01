@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
+    private GameObject[] _Enemies;
+
     //This restarts the game when activated by a button. It reloads the Scene.
     public void RestartLevel()
     {
@@ -23,6 +25,11 @@ public class Pause : MonoBehaviour
     {
         transform.GetChild(0).gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        for (int i = 0; i < _Enemies.Length; i++)
+        {
+            _Enemies[i].SetActive(true);
+        }
+        FindObjectOfType<WinScreen>().enabled = true;
     }
 
     public void Update()
@@ -31,6 +38,14 @@ public class Pause : MonoBehaviour
         //If the esc key is pressed it deactivates the cursor lockstate allowing the player to move the cursor freely.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            //FindObjectOfType<WinScreen>().enabled = false;
+            //_Enemies = new GameObject[FindObjectsOfType<EnemyShoot>().Length];
+            //for (int i = 0; i < FindObjectsOfType<EnemyShoot>().Length+1; i++)
+            //{
+            //    _Enemies[i] = FindObjectsOfType<EnemyShoot>()[i].gameObject;
+            //    _Enemies[i].SetActive(false);
+            //}
+
             Cursor.lockState = CursorLockMode.None;
             transform.GetChild(0).gameObject.SetActive(true);
         }
