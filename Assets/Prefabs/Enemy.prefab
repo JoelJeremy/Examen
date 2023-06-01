@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3145626112676395936}
   m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3145626112858325082}
   m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +224,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3145626112858325074}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.372, y: 1.758, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ebc7fc436fa9a44abb5ed1eaa07584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Angle: 45
+  _Angle: 34.97
   _Range: 20
   _TargetLayer:
     serializedVersion: 2
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3145626112923120238}
   m_Layer: 0
   m_Name: LeftArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 3145626113089028629}
   m_Layer: 0
   m_Name: Feet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 3145626113190235992}
   m_Layer: 0
   m_Name: RightArm
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 3145626113467950952}
   m_Layer: 0
   m_Name: LeftEye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 3145626113610435762}
   m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 3145626113682337262}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -975,7 +975,7 @@ GameObject:
   - component: {fileID: 3145626113719533839}
   m_Layer: 0
   m_Name: Legs
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1011,7 +1011,7 @@ GameObject:
   - component: {fileID: 3145626114202262514}
   m_Layer: 0
   m_Name: RightEye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1105,7 +1105,7 @@ GameObject:
   - component: {fileID: 3145626114229049705}
   m_Layer: 0
   m_Name: Arms
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1138,7 +1138,7 @@ GameObject:
   - component: {fileID: 3145626114535670353}
   m_Layer: 0
   m_Name: Headgear
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,7 +1174,7 @@ GameObject:
   - component: {fileID: 3145626114566237594}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,7 +1274,7 @@ GameObject:
   - component: {fileID: 3145626114599370456}
   m_Layer: 0
   m_Name: Feet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1364,9 +1364,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3145626112858325075}
     m_Modifications:
+    - target: {fileID: 2827005690385758229, guid: a610c76880add21429af1e48157af58a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827005690746188197, guid: a610c76880add21429af1e48157af58a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827005691565924627, guid: a610c76880add21429af1e48157af58a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2827005691742610004, guid: a610c76880add21429af1e48157af58a, type: 3}
       propertyPath: m_Name
       value: Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827005691742610004, guid: a610c76880add21429af1e48157af58a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 2827005691742610007, guid: a610c76880add21429af1e48157af58a, type: 3}
       propertyPath: m_RootOrder
@@ -1411,6 +1427,10 @@ PrefabInstance:
     - target: {fileID: 2827005691742610007, guid: a610c76880add21429af1e48157af58a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2827005691831609516, guid: a610c76880add21429af1e48157af58a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a610c76880add21429af1e48157af58a, type: 3}
