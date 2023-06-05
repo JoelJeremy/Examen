@@ -14,12 +14,15 @@ public class ShootScript : MonoBehaviour
     public LayerMask Enemies;
     private bool _IsReloading = false;
     public Animator _Animator;
+    public ParticleSystem _Particle;
+    public AudioSource _Source;
 
     // Start is called before the first frame update
     private void Start()
     {
         Reload();
         Cursor.lockState = CursorLockMode.Locked;
+        _Source = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +43,8 @@ public class ShootScript : MonoBehaviour
                     }
                 }
                 _CurrentAmmo--;
+                _Particle.Play();
+                _Source.Play();
             }
             if (Input.GetKeyDown(KeyCode.R) && _CurrentAmmo < _MaxAmmo && _BackupAmmo > 0)
             {
@@ -60,8 +65,16 @@ public class ShootScript : MonoBehaviour
     //When the reload is called, it sets the currentAmmo back to the maxAmmo. The amount of max ammo gets taken off from the backuAmmo
     private void Reload()
     {
-        _CurrentAmmo = _MaxAmmo;
-        _BackupAmmo -= _MaxAmmo;
+        if (_BackupAmmo >= _MaxAmmo)
+        {
+            _BackupAmmo += -_MaxAmmo + _CurrentAmmo;
+            _CurrentAmmo = _MaxAmmo;
+        }
+        else
+        {
+            _CurrentAmmo = _BackupAmmo;
+            _BackupAmmo = 0;
+        }
     }
 
     public void ReloadEnd()

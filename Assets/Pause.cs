@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
-    private GameObject[] _Enemies;
-
     //This restarts the game when activated by a button. It reloads the Scene.
     public void RestartLevel()
     {
@@ -25,10 +23,7 @@ public class Pause : MonoBehaviour
     {
         transform.GetChild(0).gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-        for (int i = 0; i < _Enemies.Length; i++)
-        {
-            _Enemies[i].SetActive(true);
-        }
+
         FindObjectOfType<WinScreen>().enabled = true;
     }
 
