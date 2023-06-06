@@ -14,23 +14,23 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 _Delta;
     public float _Xinput;
     public float _Yinput;
-    Rigidbody _Rb;
+    private Rigidbody _Rb;
     public Floorcheck _Checker;
-    bool _CanJump = false;
+    private bool _CanJump = false;
+    public AudioSource _Source;
     // Start is called before the first frame update
 
-
     //At the start the component RigidBody is fetched.
-    void Start()
+    private void Start()
     {
         _Rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void Update()
     {
         _Delta.x = 0;
         _Delta.z = 0;
-     
+
         _Xinput = Input.GetAxis("Horizontal");
         _Yinput = Input.GetAxis("Vertical");
 
@@ -48,26 +48,30 @@ public class PlayerMovement : MonoBehaviour
         }
         _Delta += _Xinput * _MovementSpeed * transform.right + _Yinput * _MovementSpeed * transform.forward;
 
-
         rotationY += Input.GetAxis("Mouse X") * sensitivity;
-        transform.localEulerAngles = new Vector3(0,rotationY, 0);
+        transform.localEulerAngles = new Vector3(0, rotationY, 0);
 
         rotationX += Input.GetAxis("Mouse Y") * -1 * sensitivity;
         rotationX = Mathf.Clamp(rotationX, -85f, 85f);
         Camera.main.transform.localEulerAngles = new Vector3(rotationX, 0, 0);
-        
+
         // geruik: Input.getaxis muis X waarde
         //LocalEulerAxis van de transform aanpassen
 
         // Math.clamp
-
+        if ((_Delta.x != 0 || _Delta.z != 0) && !_Source.isPlaying && _Checker._Grounded)
+        {
+            _Source.Play();
+        }
+        else if ((_Delta.x == 0 && _Delta.z == 0) || !_Checker._Grounded)
+        {
+            _Source.Pause();
+        }
         _Delta.y -= _Gravity;
         _Rb.velocity = _Delta;
-
     }
+
     private void FixedUpdate()
     {
-
     }
-
 }

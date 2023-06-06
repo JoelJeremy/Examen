@@ -9,8 +9,12 @@ public class Health : MonoBehaviour
     public int _MaxHealth = 100;
     public int _CurrentHealth;
     public Button _Restart;
+    public AudioClip _DeathSound;
+    public AudioSource _Source;
+    private bool _IsDead = false;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _CurrentHealth = _MaxHealth;
     }
@@ -25,7 +29,6 @@ public class Health : MonoBehaviour
         {
             //This calls the death function.
             Death();
-
         }
     }
 
@@ -42,18 +45,22 @@ public class Health : MonoBehaviour
 
             //When the player dies the cursor will be locked making it that the player will not be able to look around.
             Cursor.lockState = CursorLockMode.None;
-
+            if (!_IsDead)
+                _Source.PlayOneShot(_DeathSound);
         }
         else
         {
+            if (GetComponent<DropableItems>())
+            {
+                GetComponent<DropableItems>().DropItem();
+            }
             Destroy(gameObject);
         }
+        _IsDead = true;
     }
 
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
     }
 }

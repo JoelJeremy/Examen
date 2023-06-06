@@ -16,6 +16,7 @@ public class ShootScript : MonoBehaviour
     public Animator _Animator;
     public ParticleSystem _Particle;
     public AudioSource _Source;
+    public GameObject _BloodParticle;
 
     // Start is called before the first frame update
     private void Start()
@@ -40,6 +41,7 @@ public class ShootScript : MonoBehaviour
                     {
                         _Hit.collider.GetComponent<Health>().Takedamage(_Damage);
                         ShowHitMarker();
+                        Instantiate(_BloodParticle, _Hit.point, Quaternion.identity);
                     }
                 }
                 _CurrentAmmo--;
@@ -101,5 +103,10 @@ public class ShootScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         HideHitmarker();
+    }
+
+    public void AddAmmo(int Ammo)
+    {
+        _BackupAmmo += Ammo;
     }
 }
