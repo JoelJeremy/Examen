@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropableItems : MonoBehaviour
 {
+    [SerializeField]
     public GameObject _DropItem;
 
     public virtual GameObject DropItem()

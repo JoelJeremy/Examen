@@ -6,7 +6,7 @@ public class DroppedItem : MonoBehaviour
 {
     public float _Value;
 
-    public void PickUp()
+    public virtual void PickUp()
     {
         Destroy(gameObject);
     }
