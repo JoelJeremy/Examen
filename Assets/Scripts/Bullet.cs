@@ -7,7 +7,10 @@ public class Bullet : MonoBehaviour
     // These are the variables for the bullet property.
     public int _BulletDamage;
 
+    //this sets the speed that the enmy bullets travel with
     public float _Speed;
+
+    //This sets the time the bullet is destroyed after an enemy has shot it.
     public float _DestroyTime;
 
     private void Start()

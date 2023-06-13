@@ -27115,6 +27115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Keycards:
   - _Code: 0
+  _PickedUpKeyCards: 
 --- !u!1 &2098389821
 GameObject:
   m_ObjectHideFlags: 0
@@ -28133,7 +28134,11 @@ PrefabInstance:
       objectReference: {fileID: 1398765912}
     - target: {fileID: 2092596920, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
       propertyPath: _JumpHeight
-      value: 7
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2092596920, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
+      propertyPath: _MovementSpeed
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2092596925, guid: 86dfe7418f306144d9979f84ebcf11ca, type: 3}
       propertyPath: m_Material

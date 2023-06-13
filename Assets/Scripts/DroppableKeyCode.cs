@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DroppableKeyCode : DropableItems
 {
+    //****************************
     public int _CodeIndex;
 
     public override GameObject DropItem()

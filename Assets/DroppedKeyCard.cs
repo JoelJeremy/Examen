@@ -8,6 +8,7 @@ public class DroppedKeyCard : DroppedItem
 
     public override void PickUp()
     {
+        //this generates the  4 digid code when the a enemy drops the keycard
         KeyCardManager.KCM.AddKeyindex(_CodeIndex);
         base.PickUp();
     }
@@ -19,6 +20,7 @@ public class DroppedKeyCard : DroppedItem
 
     public void SetCode(int CodeIndex)
     {
+        //This sets the code
         _CodeIndex = CodeIndex;
     }
 
